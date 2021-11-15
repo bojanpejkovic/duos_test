@@ -13,7 +13,6 @@ export default function Home() {
         <Head>
             <title>Rick &amp; Morty Episode details</title>
         </Head>
-        <Breadcrumbs />
         <main>
             <Episode epid={epid} />
         </main>

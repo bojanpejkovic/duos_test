@@ -5,6 +5,7 @@ import Error from "./Error";
 import Card from "./Card";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+
 const EPISODES_LIST = gql`
   query AllEpisodes {
     episodes {

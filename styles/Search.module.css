@@ -1,0 +1,7 @@
+.grid_2_columns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.grid_2_columns > div:first-child{
+    border-right: 2px solid gray;
+}

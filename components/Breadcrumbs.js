@@ -3,7 +3,6 @@ import { Fragment, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getCharacter, getEpisode } from "./redux_store/navigationSlice";
 
-
 export default function Breadcrumbs(){
     const initialLinks = [{link: "/", id:"", name:"Episodes"}];
     const episode = useSelector(getEpisode);
