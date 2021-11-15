@@ -22,7 +22,16 @@ a {
   flex-wrap: wrap;
   max-width: 800px;
 }
-
+span.link a{
+    text-decoration: underline;
+}
+span.link a:hover{
+        text-decoration: underline;
+    color:rgb(31, 145, 238);
+}
+li{
+    list-style-type: none;;
+}
 @media (max-width: 600px) {
   .grid {
     width: 100%;

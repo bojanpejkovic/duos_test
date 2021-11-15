@@ -4,9 +4,11 @@ export default function CharacterLink({ data }){
     // return 
 
     return (
-        <Link href={{
+        <span className="link">
+            <Link href={{
             pathname: '/characters/[chid]',
             query: { chid: data.id },
         }}>{data.name}</Link>
+        </span>
     )
 }

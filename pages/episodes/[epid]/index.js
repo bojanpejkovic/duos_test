@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Episode from "../../../components/Episode";
 import { useRouter } from 'next/router'
+import Breadcrumbs from '../../../components/Breadcrumbs';
 
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <Head>
             <title>Rick &amp; Morty Episode details</title>
         </Head>
+        <Breadcrumbs />
         <main>
             <Episode epid={epid} />
         </main>

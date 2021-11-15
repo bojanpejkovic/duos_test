@@ -1,5 +1,8 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import "../styles/globals.css";
+import store from '../components/redux_store/store';
+import { Provider } from 'react-redux';
+
 
 const cache = new InMemoryCache();
 
@@ -8,10 +11,13 @@ const client = new ApolloClient({
   uri: "https://rickandmortyapi.com/graphql",
 });
 
+
 function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
-      <Component {...pageProps} />;
+        <Provider store={store}>
+            <Component {...pageProps} />;
+      </Provider>
     </ApolloProvider>
   );
 }

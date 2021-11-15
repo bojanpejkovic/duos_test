@@ -5,6 +5,9 @@ import Error from "./Error";
 import Image from "next/image";
 import styles from "../styles/Character.module.css";
 
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
 const ONE_EPISODE = gql`
     query oneCharacter($chid: ID!){
         character(id: $chid) {
@@ -19,14 +22,20 @@ const ONE_EPISODE = gql`
 `;
 
 export default function CharacterCard({ chid }){
+    const dispatch = useDispatch();
     const { data, error } = useQuery(ONE_EPISODE, { variables:{ chid: chid }});
+    useEffect(()=>{
+        if(!data){ 
+            dispatch({ type: 'navigation/reset', payload:{type:"character" }});
+            return;
+        }
+        dispatch({ type: 'navigation/setCharacter', payload:{chid:chid, name:data.character.name }});
+    }, [data]);
 
-    if (!data) return <Loading />
-    if (error) return <Error error={error} />
-
-    console.log(data);
 
     return (
+        (!data)? <Loading /> :
+        (error)? <Error error={error} /> :
         <div className={styles.characterCard}>
             <h3>{data.character.name}</h3>
             <Image
