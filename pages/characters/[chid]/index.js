@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from 'next/router'
-
+import CharacterCard from "../../../components/CharacterCard";
 
 export default function Home() {
     const router = useRouter();
@@ -15,7 +15,7 @@ export default function Home() {
         </Head>
 
         <main>
-            <p>Character ID: {chid}</p>
+            <CharacterCard chid={chid} />
         </main>
         </div>
     );
